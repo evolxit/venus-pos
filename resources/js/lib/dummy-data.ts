@@ -4,14 +4,14 @@ export const sliderProducts = [
         handle: 'product-one',
         title: 'Experience Modern Elegance in Innovative Lighting Designs',
         description: 'Sleek, Contemporary Glow',
-        featuredImage: 'https://cdn.shopify.com/s/files/1/0631/6815/1720/files/11062497_48473_Converted_5.png?v=1700127953',
+        image: 'https://cdn.shopify.com/s/files/1/0631/6815/1720/files/11062497_48473_Converted_5.png?v=1700127953',
     },
     {
         id: 1,
         handle: 'product-two',
         title: 'Product Two',
         description: 'Sleek, Contemporary Glow',
-        featuredImage: 'https://placeholder.pics/svg/300x200',
+        image: 'https://placeholder.pics/svg/300x200',
     },
 ];
 

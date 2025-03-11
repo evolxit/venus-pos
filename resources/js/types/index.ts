@@ -66,5 +66,5 @@ export type Product = {
     handle: string;
     title: string;
     description: string;
-    featuredImage: string;
+    image: string;
 };

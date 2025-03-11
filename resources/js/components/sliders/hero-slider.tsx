@@ -28,13 +28,7 @@ export default function HeroSlider({ products }: { products: Product[] }) {
                             </div>
 
                             <div className="">
-                                <img
-                                    src={item.featuredImage}
-                                    className="mx-auto w-[388px] lg:w-full"
-                                    width={'507'}
-                                    height={'385'}
-                                    alt="banner image"
-                                />
+                                <img src={item.image} className="mx-auto w-[388px] lg:w-full" width={'507'} height={'385'} alt="banner image" />
                             </div>
                         </div>
                     </SwiperSlide>
