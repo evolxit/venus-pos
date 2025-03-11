@@ -1,5 +1,6 @@
 import Heading from '@/components/heading';
 import HeroSlider from '@/components/sliders/hero-slider';
+import { Button } from '@/components/ui/button';
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } from '@/components/ui/drawer';
 import ShopLayout from '@/layouts/shop-layout';
 import { products, sliderProducts } from '@/lib/dummy-data';
@@ -32,6 +33,11 @@ export default function ShopIndex() {
                             <h2>{product.title}</h2>
                         </div>
                     ))}
+                    <div className="col-span-4">
+                        <div className="flex justify-center">
+                            <Button variant="outline">Browse All</Button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <Drawer open={open} onOpenChange={setOpen} direction="right">
