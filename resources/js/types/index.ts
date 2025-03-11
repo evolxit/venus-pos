@@ -60,3 +60,11 @@ export interface User {
     can_do: string[];
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export type Product = {
+    id: number;
+    handle: string;
+    title: string;
+    description: string;
+    featuredImage: string;
+};
