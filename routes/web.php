@@ -37,6 +37,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('categories', App\Http\Controllers\CategoryController::class);
 
     Route::resource('products', App\Http\Controllers\ProductController::class);
+
+    Route::resource('customers', App\Http\Controllers\CustomerController::class);
 });
 
 Route::impersonate();
