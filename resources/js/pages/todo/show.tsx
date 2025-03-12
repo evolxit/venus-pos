@@ -1,6 +1,6 @@
 import { DeleteBtn } from '@/components/buttons/delete-btn';
 import { EditBtn } from '@/components/buttons/edit-btn';
-import { DetailListItem } from '@/components/common/detail-list-item';
+import { DetailListText } from '@/components/common/detail-list-text';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
 import { BreadcrumbItem, User } from '@/types';
@@ -43,13 +43,13 @@ export default function TodoShow({ todo, media, isDelete }: { todo: Todo; media:
                     </CardHeader>
                     <CardContent>
                         <dl className="-my-3 divide-y divide-gray-100 text-sm">
-                            <DetailListItem label="name" value={todo.name} />
-                            <DetailListItem label="status" value={todo.status} />
-                            <DetailListItem label="completed at" value={todo.completed_at} />
-                            <DetailListItem label="content" value={todo.content} />
-                            <DetailListItem label="created by" value={todo.creator.name} />
-                            <DetailListItem label="created at" value={todo.created_at} />
-                            <DetailListItem label="file" value={media} />
+                            <DetailListText label="name" value={todo.name} />
+                            <DetailListText label="status" value={todo.status} />
+                            <DetailListText label="completed at" value={todo.completed_at} />
+                            <DetailListText label="content" value={todo.content} />
+                            <DetailListText label="created by" value={todo.creator.name} />
+                            <DetailListText label="created at" value={todo.created_at} />
+                            <DetailListText label="file" value={media} />
                         </dl>
                     </CardContent>
                     <CardFooter className="flex flex-row justify-between">

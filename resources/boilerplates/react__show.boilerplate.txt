@@ -6,7 +6,7 @@
 ---
 import { DeleteBtn } from '@/components/buttons/delete-btn';
 import { EditBtn } from '@/components/buttons/edit-btn';
-import { DetailListItem } from '@/components/common/detail-list-item';
+import { DetailListText } from '@/components/common/detail-list-item';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
 import { BreadcrumbItem } from '@/types';
@@ -45,8 +45,8 @@ export default function {{ ucfirst($name) }}Show({ {{ $name }}, isDelete }: { {{
                     </CardHeader>
                     <CardContent>
                         <dl className="-my-3 divide-y divide-gray-100 text-sm">
-                            <DetailListItem label="name" value={{ '{'.$name.'.name}' }} />
-                            <DetailListItem label="created at" value={{ '{'.$name.'.created_at}' }} />
+                            <DetailListText label="name" value={{ '{'.$name.'.name}' }} />
+                            <DetailListText label="created at" value={{ '{'.$name.'.created_at}' }} />
                         </dl>
                     </CardContent>
                     <CardFooter className="flex flex-row justify-between">

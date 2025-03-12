@@ -13,6 +13,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 
+    // Example routes
+
     Route::group(['middleware' => ['role:god']], function () {
         Route::get('secret', function () {
             return Inertia::render('secret');
@@ -28,6 +30,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('todos/export', [App\Http\Controllers\TodoController::class, 'export'])->name('todos.export');
     Route::resource('todos', App\Http\Controllers\TodoController::class);
 
+    // POS routes
+
+    Route::resource('brands', App\Http\Controllers\BrandController::class);
+
+    Route::resource('categories', App\Http\Controllers\CategoryController::class);
+
+    Route::resource('products', App\Http\Controllers\ProductController::class);
 });
 
 Route::impersonate();

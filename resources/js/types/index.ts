@@ -68,3 +68,13 @@ export type Product = {
     description: string;
     image: string;
 };
+
+export type Brand = {
+    id: number;
+    name: string;
+};
+
+export type Category = {
+    id: number;
+    name: string;
+};

@@ -1,6 +1,6 @@
 import { DeleteBtn } from '@/components/buttons/delete-btn';
 import { EditBtn } from '@/components/buttons/edit-btn';
-import { DetailListItem } from '@/components/common/detail-list-item';
+import { DetailListText } from '@/components/common/detail-list-text';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
 import { BreadcrumbItem } from '@/types';
@@ -39,7 +39,7 @@ export default function RoleShow({ role, isDelete }: { role: Role; isDelete: boo
                     </CardHeader>
                     <CardContent>
                         <dl className="-my-3 divide-y divide-gray-100 text-sm">
-                            <DetailListItem label="name" value={role.name} />
+                            <DetailListText label="name" value={role.name} />
                         </dl>
                     </CardContent>
                     <CardFooter className="flex flex-row justify-between">
