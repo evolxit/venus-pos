@@ -125,17 +125,41 @@ export default function ProductCreate() {
                             />
                             <InputError className="mt-2" message={errors.size} />
                         </div>
-                        <div className="grid grid-flow-col gap-2">
+                        <div className="space-x-2">
                             <Switch id="is_active" checked={data.is_active} onCheckedChange={() => setData('is_active', !data.is_active)} />
                             <Label htmlFor="is_active">Show Product</Label>
                         </div>
-                        <div className="grid grid-flow-col gap-2">
+                        <div className="space-x-2">
                             <Switch id="is_featured" checked={data.is_featured} onCheckedChange={() => setData('is_featured', !data.is_featured)} />
                             <Label htmlFor="is_active">Featured Product</Label>
                         </div>
-                        <div className="grid grid-flow-col gap-2">
+                        <div className="space-x-2">
                             <Switch id="is_hero" checked={data.is_hero} onCheckedChange={() => setData('is_hero', !data.is_hero)} />
                             <Label htmlFor="is_hero">Hero Slider</Label>
+                        </div>
+                        <div className="grid grid-flow-row gap-2">
+                            <Label htmlFor="start_price_mmk">Start Price (MMK)*</Label>
+                            <Input
+                                id="start_price_mmk"
+                                type="number"
+                                value={data.start_price_mmk}
+                                onChange={(e) => setData('start_price_mmk', Number(e.target.value))}
+                                required
+                                placeholder="enter starting price in MMK"
+                            />
+                            <InputError className="mt-2" message={errors.start_price_mmk} />
+                        </div>
+                        <div className="grid grid-flow-row gap-2">
+                            <Label htmlFor="start_price_sgd">Start Price (SGD)*</Label>
+                            <Input
+                                id="start_price_sgd"
+                                type="number"
+                                value={data.start_price_sgd}
+                                onChange={(e) => setData('start_price_sgd', Number(e.target.value))}
+                                required
+                                placeholder="enter starting price in SGD"
+                            />
+                            <InputError className="mt-2" message={errors.start_price_sgd} />
                         </div>
                         <div className="flex justify-end gap-4">
                             <Button variant="secondary" type="reset" disabled={processing}>
