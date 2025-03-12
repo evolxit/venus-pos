@@ -4,7 +4,21 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, ListCheck, Shield, TerminalSquare, Users } from 'lucide-react';
+import {
+    BadgeDollarSign,
+    BookmarkIcon,
+    BookOpen,
+    Box,
+    Folder,
+    LayoutGrid,
+    ListCheck,
+    ListOrdered,
+    Shield,
+    StarIcon,
+    TerminalSquare,
+    UserCog,
+    Users,
+} from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -12,6 +26,36 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         url: route('dashboard'),
         icon: LayoutGrid,
+    },
+    {
+        title: 'Invoices',
+        url: '#',
+        icon: ListOrdered,
+    },
+    {
+        title: 'Payments',
+        url: '#',
+        icon: BadgeDollarSign,
+    },
+    {
+        title: 'Customers',
+        url: '#',
+        icon: UserCog,
+    },
+    {
+        title: 'Products',
+        url: route('products.index'),
+        icon: Box,
+    },
+    {
+        title: 'Category',
+        url: route('categories.index'),
+        icon: BookmarkIcon,
+    },
+    {
+        title: 'Brands',
+        url: route('brands.index'),
+        icon: StarIcon,
     },
     {
         title: 'Users',

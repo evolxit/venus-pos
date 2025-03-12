@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             // TodoSeeder::class,
+            ProductSeeder::class
         ]);
     }
 
