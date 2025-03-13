@@ -78,3 +78,24 @@ export type Category = {
     id: number;
     name: string;
 };
+
+export type Customer = {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+    prepaid_balance: number;
+};
+
+export type InvoiceProduct = {
+    id: number;
+    type: string;
+    size: string;
+    qty: number;
+    unit_selling_price: number;
+    unit_total: number;
+    remarks: string;
+    product: Product;
+    brand: Brand;
+};

@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             // TodoSeeder::class,
             ProductSeeder::class,
             CustomerSeeder::class,
+            InvoiceSeeder::class,
         ]);
     }
 

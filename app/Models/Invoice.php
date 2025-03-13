@@ -41,11 +41,11 @@ class Invoice extends BaseModel
      */
     protected $casts = [
         'id' => 'integer',
-        'order_date' => 'timestamp',
+        // 'order_date' => 'timestamp',
         'customer_id' => 'integer',
         'status' => InvoiceStatusEnum::class,
-        'shipping_date' => 'timestamp',
-        'est_arrival_date' => 'timestamp',
+        // 'shipping_date' => 'timestamp',
+        // 'est_arrival_date' => 'timestamp',
         'total_amount' => 'integer',
         'deposit_paid' => 'integer',
         'remaining_amount' => 'integer',
@@ -59,5 +59,10 @@ class Invoice extends BaseModel
     public function invoiceProducts(): HasMany
     {
         return $this->hasMany(InvoiceProduct::class);
+    }
+
+    public function getOrderDateAttribute($value)
+    {
+        return $value ? $this->asDateTime($value)->format('Y/m/d') : null;
     }
 }

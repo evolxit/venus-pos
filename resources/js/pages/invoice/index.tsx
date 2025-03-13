@@ -4,7 +4,7 @@ import { DataTable, DataTableActions } from '@/components/tables/data-table';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import AppLayout from '@/layouts/app-layout';
-import { BreadcrumbItem } from '@/types';
+import { BreadcrumbItem, Customer, InvoiceProduct } from '@/types';
 import { Head, Link } from '@inertiajs/react';
 import { ColumnDef } from '@tanstack/react-table';
 import { ArrowUpDown } from 'lucide-react';
@@ -13,9 +13,21 @@ import { ArrowUpDown } from 'lucide-react';
 // Update your types file and import from it
 type Invoice = {
     id?: number;
-    name: string;
-    created_at?: string;
-}
+    invoice_no: string;
+    order_date: string;
+    customer_phone: string;
+    customer_address: string;
+    payment_method: string;
+    shipping_date: string;
+    est_arrival_date: string;
+    region_delivery_fee: number;
+    remarks: string;
+    total_amount: number;
+    deposit_paid: number;
+    remaing_amount: number;
+    customer: Customer;
+    invoiceProducts: InvoiceProduct[];
+};
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -41,11 +53,11 @@ const columns: ColumnDef<Invoice>[] = [
         enableHiding: false,
     },
     {
-        accessorKey: 'name',
+        accessorKey: 'invoice_no',
         header: ({ column }) => {
             return (
                 <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-                    Name
+                    Invoice No.
                     <ArrowUpDown className="ml-2 h-4 w-4" />
                 </Button>
             );
@@ -57,14 +69,34 @@ const columns: ColumnDef<Invoice>[] = [
                     invoice: row.original.id,
                 })}
             >
-                {row.getValue('name')}
+                {row.getValue('invoice_no')}
             </Link>
         ),
     },
     {
-        accessorKey: 'created_at',
-        header: 'Created At',
-        cell: ({ row }) => <div className="">{row.getValue('created_at')}</div>,
+        accessorKey: 'order_date',
+        header: 'Order Date',
+        cell: ({ row }) => <div className="">{row.getValue('order_date')}</div>,
+    },
+    {
+        accessorKey: 'customer',
+        header: 'Customer',
+        cell: ({ row }) => <div className="">{row.getValue<Customer>('customer').name}</div>,
+    },
+    {
+        accessorKey: 'total_amount',
+        header: 'Total',
+        cell: ({ row }) => <div className="">{row.getValue('total_amount')}</div>,
+    },
+    {
+        accessorKey: 'deposit_paid',
+        header: 'Paid',
+        cell: ({ row }) => <div className="">{row.getValue('deposit_paid')}</div>,
+    },
+    {
+        accessorKey: 'remaining_amount',
+        header: 'Remaining',
+        cell: ({ row }) => <div className="">{row.getValue('remaining_amount')}</div>,
     },
     {
         id: 'actions',
