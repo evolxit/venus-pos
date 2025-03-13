@@ -28,7 +28,6 @@ final class CategoryControllerTest extends TestCase
         $response->assertViewHas('categories');
     }
 
-
     #[Test]
     public function create_displays_view(): void
     {
@@ -37,7 +36,6 @@ final class CategoryControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('category.create');
     }
-
 
     #[Test]
     public function store_uses_form_request_validation(): void
@@ -68,7 +66,6 @@ final class CategoryControllerTest extends TestCase
         $response->assertSessionHas('category.id', $category->id);
     }
 
-
     #[Test]
     public function show_displays_view(): void
     {
@@ -81,7 +78,6 @@ final class CategoryControllerTest extends TestCase
         $response->assertViewHas('category');
     }
 
-
     #[Test]
     public function edit_displays_view(): void
     {
@@ -93,7 +89,6 @@ final class CategoryControllerTest extends TestCase
         $response->assertViewIs('category.edit');
         $response->assertViewHas('category');
     }
-
 
     #[Test]
     public function update_uses_form_request_validation(): void
@@ -122,7 +117,6 @@ final class CategoryControllerTest extends TestCase
 
         $this->assertEquals($name, $category->name);
     }
-
 
     #[Test]
     public function destroy_deletes_and_redirects(): void

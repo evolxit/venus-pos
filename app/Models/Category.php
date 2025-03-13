@@ -4,7 +4,6 @@ namespace App\Models;
 
 class Category extends BaseModel
 {
-
     /**
      * The attributes that are mass assignable.
      *

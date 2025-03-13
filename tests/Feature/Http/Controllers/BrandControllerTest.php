@@ -28,7 +28,6 @@ final class BrandControllerTest extends TestCase
         $response->assertViewHas('brands');
     }
 
-
     #[Test]
     public function create_displays_view(): void
     {
@@ -37,7 +36,6 @@ final class BrandControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('brand.create');
     }
-
 
     #[Test]
     public function store_uses_form_request_validation(): void
@@ -68,7 +66,6 @@ final class BrandControllerTest extends TestCase
         $response->assertSessionHas('brand.id', $brand->id);
     }
 
-
     #[Test]
     public function show_displays_view(): void
     {
@@ -81,7 +78,6 @@ final class BrandControllerTest extends TestCase
         $response->assertViewHas('brand');
     }
 
-
     #[Test]
     public function edit_displays_view(): void
     {
@@ -93,7 +89,6 @@ final class BrandControllerTest extends TestCase
         $response->assertViewIs('brand.edit');
         $response->assertViewHas('brand');
     }
-
 
     #[Test]
     public function update_uses_form_request_validation(): void
@@ -122,7 +117,6 @@ final class BrandControllerTest extends TestCase
 
         $this->assertEquals($name, $brand->name);
     }
-
 
     #[Test]
     public function destroy_deletes_and_redirects(): void

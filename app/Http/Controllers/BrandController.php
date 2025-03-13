@@ -7,8 +7,6 @@ use App\Http\Requests\BrandUpdateRequest;
 use App\Models\Brand;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
 use Inertia\Inertia;
 use Inertia\Response;
 
