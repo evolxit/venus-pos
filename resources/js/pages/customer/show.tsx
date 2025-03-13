@@ -1,6 +1,6 @@
 import { DeleteBtn } from '@/components/buttons/delete-btn';
 import { EditBtn } from '@/components/buttons/edit-btn';
-import { DetailListText } from '@/components/common/detail-list-item';
+import { DetailListText } from '@/components/common/detail-list-text';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
 import { BreadcrumbItem } from '@/types';
@@ -12,7 +12,13 @@ import React from 'react';
 type Customer = {
     id?: number;
     name: string;
+    email: string;
+    phone: string;
+    address: string;
+    prepaid_balance: number;
+    is_active: boolean;
     created_at?: string;
+    updated_at?: string;
 };
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -40,7 +46,13 @@ export default function CustomerShow({ customer, isDelete }: { customer: Custome
                     <CardContent>
                         <dl className="-my-3 divide-y divide-gray-100 text-sm">
                             <DetailListText label="name" value={customer.name} />
+                            <DetailListText label="email" value={customer.email} />
+                            <DetailListText label="phone" value={customer.phone} />
+                            <DetailListText label="address" value={customer.address} />
+                            <DetailListText label="prepaid balance" value={customer.prepaid_balance + ' Ks'} />
+                            <DetailListText label="Is Active" value={customer.is_active ? 'Yes' : 'No'} />
                             <DetailListText label="created at" value={customer.created_at} />
+                            <DetailListText label="updated at" value={customer.created_at} />
                         </dl>
                     </CardContent>
                     <CardFooter className="flex flex-row justify-between">

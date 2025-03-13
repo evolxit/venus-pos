@@ -2,6 +2,8 @@ import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/ui/switch';
+import { Textarea } from '@/components/ui/textarea';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head, useForm } from '@inertiajs/react';
@@ -12,8 +14,12 @@ import { FormEventHandler } from 'react';
 type Customer = {
     id?: number;
     name: string;
-    created_at?: string;
-}
+    email: string;
+    phone: string;
+    address: string;
+    prepaid_balance: string;
+    is_active: boolean;
+};
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -26,9 +32,14 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-export default function CustomerEdit({ customer }: { customer: Customer; }) {
+export default function CustomerEdit({ customer }: { customer: Customer }) {
     const { data, setData, patch, reset, errors, processing } = useForm<Customer>({
         name: customer.name,
+        email: customer.email,
+        phone: customer.phone,
+        address: customer.address,
+        prepaid_balance: customer.prepaid_balance,
+        is_active: customer.is_active,
     });
 
     const submit: FormEventHandler = (e) => {
@@ -43,7 +54,7 @@ export default function CustomerEdit({ customer }: { customer: Customer; }) {
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Create - Customer" />
+            <Head title="Edit - Customer" />
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <form onSubmit={submit} className="md:max-w-xl">
                     <div className="space-y-6">
@@ -58,6 +69,45 @@ export default function CustomerEdit({ customer }: { customer: Customer; }) {
                                 autoFocus={true}
                             />
                             <InputError className="mt-2" message={errors.name} />
+                        </div>
+                        <div className="grid grid-flow-row gap-2">
+                            <Label htmlFor="email">Email</Label>
+                            <Input
+                                id="email"
+                                value={data.email}
+                                onChange={(e) => setData('email', e.target.value)}
+                                placeholder="customer@example.com"
+                            />
+                            <InputError className="mt-2" message={errors.email} />
+                        </div>
+                        <div className="grid grid-flow-row gap-2">
+                            <Label htmlFor="phone">Phone</Label>
+                            <Input id="phone" value={data.phone} onChange={(e) => setData('phone', e.target.value)} placeholder="+959 12345 6789" />
+                            <InputError className="mt-2" message={errors.phone} />
+                        </div>
+                        <div className="grid grid-flow-row gap-2">
+                            <Label htmlFor="address">Address</Label>
+                            <Textarea
+                                id="address"
+                                value={data.address}
+                                onChange={(e) => setData('address', e.target.value)}
+                                placeholder="Hlaing Township, Yangon, Myanmar"
+                            />
+                            <InputError className="mt-2" message={errors.address} />
+                        </div>
+                        <div className="grid grid-flow-row gap-2">
+                            <Label htmlFor="prepaid_balance">Prepaid Balance</Label>
+                            <Input
+                                id="prepaid_balance"
+                                value={data.prepaid_balance}
+                                onChange={(e) => setData('prepaid_balance', e.target.value)}
+                                placeholder="0"
+                            />
+                            <InputError className="mt-2" message={errors.prepaid_balance} />
+                        </div>
+                        <div className="space-x-2">
+                            <Switch id="is_active" checked={data.is_active} onCheckedChange={() => setData('is_active', !data.is_active)} />
+                            <Label htmlFor="is_active">Active Customer</Label>
                         </div>
                         <div className="flex justify-end gap-4">
                             <Button variant="secondary" type="reset" disabled={processing}>

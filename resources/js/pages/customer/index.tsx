@@ -1,5 +1,4 @@
 import { CreateBtn } from '@/components/buttons/create-btn';
-import { ExportBtn } from '@/components/buttons/export-btn';
 import { DataTable, DataTableActions } from '@/components/tables/data-table';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -15,7 +14,7 @@ type Customer = {
     id?: number;
     name: string;
     created_at?: string;
-}
+};
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -62,6 +61,16 @@ const columns: ColumnDef<Customer>[] = [
         ),
     },
     {
+        accessorKey: 'phone',
+        header: 'Phone',
+        cell: ({ row }) => <div className="">{row.getValue('phone')}</div>,
+    },
+    {
+        accessorKey: 'prepaid_balance',
+        header: 'Prepaid Balance',
+        cell: ({ row }) => <div className="">{row.getValue('prepaid_balance')} Ks</div>,
+    },
+    {
         accessorKey: 'created_at',
         header: 'Created At',
         cell: ({ row }) => <div className="">{row.getValue('created_at')}</div>,
@@ -84,7 +93,7 @@ export default function CustomerIndex({ customers }: { customers: Customer[] }) 
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <div className="flex flex-row justify-between">
                     <CreateBtn route={route('customers.create')} />
-                    <ExportBtn route={route('customers.export')} />
+                    {/* <ExportBtn route={route('customers.export')} /> */}
                 </div>
                 <DataTable data={customers} columns={columns} />
             </div>

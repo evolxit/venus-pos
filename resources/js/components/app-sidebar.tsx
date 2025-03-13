@@ -39,7 +39,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Customers',
-        url: '#',
+        url: route('customers.index'),
         icon: UserCog,
     },
     {
