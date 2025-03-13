@@ -29,7 +29,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Invoices',
-        url: '#',
+        url: route('invoices.index'),
         icon: ListOrdered,
     },
     {
