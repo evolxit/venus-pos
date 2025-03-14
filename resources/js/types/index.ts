@@ -23,7 +23,7 @@ export interface NavItem {
 }
 
 export type Option = {
-    value: string;
+    value: string | number;
     label: string;
 };
 
@@ -67,6 +67,7 @@ export type Product = {
     title: string;
     description: string;
     image: string;
+    start_price_mmk: number;
 };
 
 export type Brand = {
@@ -89,7 +90,7 @@ export type Customer = {
 };
 
 export type InvoiceProduct = {
-    id: number;
+    id: number | undefined;
     type: string;
     size: string;
     qty: number;
@@ -97,5 +98,5 @@ export type InvoiceProduct = {
     unit_total: number;
     remarks: string;
     product: Product;
-    brand: Brand;
+    brand?: Brand;
 };

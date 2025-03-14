@@ -33,8 +33,8 @@ class InvoiceFactory extends Factory
             'region_delivery_fee' => fake()->numberBetween(1000, 1000),
             'remarks' => fake()->text(),
             'total_amount' => fake()->numberBetween(90000, 100000),
-            'deposit_paid' => fake()->numberBetween(10000, 50000),
-            'remaining_amount' => fake()->numberBetween(10000, 50000),
+            'deposit_paid' => fake()->numberBetween(40000, 50000),
+            'remaining_amount' => fake()->numberBetween(40000, 50000),
         ];
     }
 }

@@ -86,17 +86,17 @@ const columns: ColumnDef<Invoice>[] = [
     {
         accessorKey: 'total_amount',
         header: 'Total',
-        cell: ({ row }) => <div className="">{row.getValue('total_amount')}</div>,
+        cell: ({ row }) => <div className="">{row.getValue('total_amount')} Ks</div>,
     },
     {
         accessorKey: 'deposit_paid',
         header: 'Paid',
-        cell: ({ row }) => <div className="">{row.getValue('deposit_paid')}</div>,
+        cell: ({ row }) => <div className="">{row.getValue('deposit_paid')} Ks</div>,
     },
     {
         accessorKey: 'remaining_amount',
         header: 'Remaining',
-        cell: ({ row }) => <div className="">{row.getValue('remaining_amount')}</div>,
+        cell: ({ row }) => <div className="">{row.getValue('remaining_amount')} Ks</div>,
     },
     {
         id: 'actions',

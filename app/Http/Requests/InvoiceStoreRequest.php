@@ -22,7 +22,7 @@ class InvoiceStoreRequest extends FormRequest
         return [
             'invoice_no' => ['required', 'string', 'max:400'],
             'order_date' => ['nullable'],
-            'customer_id' => ['required', 'integer', 'exists:customers,id'],
+            'customer_id' => ['nullable', 'integer', 'exists:customers,id'],
             'customer_phone' => ['nullable', 'string'],
             'customer_address' => ['nullable', 'string', 'max:400'],
             'status' => ['required', 'in:draft,pending,processing,shipped,completed'],
@@ -31,9 +31,9 @@ class InvoiceStoreRequest extends FormRequest
             'est_arrival_date' => ['nullable'],
             'region_delivery_fee' => ['nullable', 'integer'],
             'remarks' => ['nullable', 'string'],
-            'total_amount' => ['required', 'integer'],
-            'deposit_paid' => ['required', 'integer'],
-            'remaining_amount' => ['required', 'integer'],
+            'total_amount' => ['nullable', 'integer'],
+            'deposit_paid' => ['nullable', 'integer'],
+            'remaining_amount' => ['nullable', 'integer'],
         ];
     }
 }
