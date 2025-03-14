@@ -39,6 +39,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('products', App\Http\Controllers\ProductController::class);
 
     Route::resource('customers', App\Http\Controllers\CustomerController::class);
+
+    Route::get('invoices/export', [App\Http\Controllers\InvoiceController::class, 'export'])->name('invoices.export');
+    Route::resource('invoices', App\Http\Controllers\InvoiceController::class);
 });
 
 Route::impersonate();
