@@ -5,8 +5,8 @@
     git restore .
     git pull
     composer install
-    php artisan migrate --force
+    {php83rc} artisan migrate --force
     pnpm install
     pnpm build
-    php artisan optimize:clear
+    {php83rc} artisan optimize:clear
 @endtask
